@@ -73,28 +73,51 @@
     var prevBtn = carousel.querySelector('.carousel-btn.prev');
     var nextBtn = carousel.querySelector('.carousel-btn.next');
     var index = 0;
+    var visibleCount = 1;
+    var maxIndex = 0;
+    var dots = [];
     var autoplayMs = 5000;
     var timer = null;
     var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    var dots = slides.map(function (_, i) {
-      var dot = document.createElement('button');
-      dot.className = 'carousel-dot';
-      dot.type = 'button';
-      dot.setAttribute('role', 'tab');
-      dot.setAttribute('aria-label', 'Go to photo ' + (i + 1));
-      dot.addEventListener('click', function () { goTo(i); });
-      dotsWrap.appendChild(dot);
-      return dot;
-    });
+    var desktopVisible = parseInt(carousel.dataset.visible, 10) || 1;
+    var mobileVisible = parseInt(carousel.dataset.visibleMobile, 10) || 1;
+    var breakpoint = parseInt(carousel.dataset.breakpoint, 10) || 720;
+    var mobileQuery = window.matchMedia('(max-width: ' + breakpoint + 'px)');
+
+    function buildDots() {
+      dotsWrap.innerHTML = '';
+      dots = [];
+      for (var i = 0; i <= maxIndex; i++) {
+        (function (i) {
+          var dot = document.createElement('button');
+          dot.className = 'carousel-dot';
+          dot.type = 'button';
+          dot.setAttribute('role', 'tab');
+          dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+          dot.addEventListener('click', function () { goTo(i); startAutoplay(); });
+          dotsWrap.appendChild(dot);
+          dots.push(dot);
+        })(i);
+      }
+    }
 
     function render() {
-      track.style.transform = 'translateX(-' + (index * 100) + '%)';
+      var step = 100 / visibleCount;
+      track.style.transform = 'translateX(-' + (index * step) + '%)';
       dots.forEach(function (dot, i) { dot.classList.toggle('is-active', i === index); });
     }
 
+    function recalc() {
+      visibleCount = mobileQuery.matches ? mobileVisible : desktopVisible;
+      maxIndex = Math.max(0, slides.length - visibleCount);
+      if (index > maxIndex) index = maxIndex;
+      buildDots();
+      render();
+    }
+
     function goTo(i) {
-      index = (i + slides.length) % slides.length;
+      index = maxIndex === 0 ? 0 : (i + maxIndex + 1) % (maxIndex + 1);
       render();
     }
 
@@ -102,7 +125,7 @@
     function prev() { goTo(index - 1); }
 
     function startAutoplay() {
-      if (reduceMotion || slides.length < 2) return;
+      if (reduceMotion || maxIndex === 0) return;
       stopAutoplay();
       timer = window.setInterval(next, autoplayMs);
     }
@@ -132,7 +155,13 @@
       touchStartX = null;
     });
 
-    render();
+    if (mobileQuery.addEventListener) {
+      mobileQuery.addEventListener('change', recalc);
+    } else if (mobileQuery.addListener) {
+      mobileQuery.addListener(recalc);
+    }
+
+    recalc();
     startAutoplay();
   });
 })();

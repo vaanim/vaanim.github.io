@@ -172,36 +172,92 @@
             <div class="wrap">
                 <h2 class="section-heading"><span class="num">02.</span> Projects</h2>
                 <div class="section-body">
-                    <div class="project-grid">
+                    <div class="carousel project-carousel" id="projectCarousel" data-visible="3" data-visible-mobile="1" data-breakpoint="900" aria-roledescription="carousel" aria-label="Project gallery">
+                        <div class="carousel-viewport">
+                        <div class="carousel-track">
 
-                        <article class="project-card">
-                            <h3>NasomEATR</h3>
-                            <p class="project-sub">Real-Time Speech Analysis Platform</p>
-                            <ul>
-                                <li>Architected and built a mobile app integrating wireless hardware communication for real-time acoustic signal processing.</li>
-                                <li>Designed data pipelines to compute nasalance scores and store structured speech-analysis datasets.</li>
-                                <li>Optimized low-latency data transmission between device and mobile system.</li>
-                            </ul>
-                        </article>
+                            <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="1 of 4">
+                                <a class="project-card-link" href="projects.html#livekit-voice-agent">
+                                    <article class="project-card">
+                                        <h3>LiveKit AI Voice Agent</h3>
+                                        <p class="project-sub">Real-Time Voice AI for Dental Scheduling</p>
+                                        <ul>
+                                            <li>Architected an AI voice assistant for a dental office using the LiveKit real-time communication framework.</li>
+                                            <li>Built Python backend services integrating OpenAI APIs for speech-to-text and LLM-driven dialogue.</li>
+                                            <li>Designed scalable API pipelines with n8n to log calls and manage scheduling, rescheduling, and cancellations.</li>
+                                        </ul>
+                                        <span class="project-view-more">
+                                            View project details
+                                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke-width="2"/></svg>
+                                        </span>
+                                    </article>
+                                </a>
+                            </div>
 
-                        <article class="project-card">
-                            <h3>Pythar Automation Testing</h3>
-                            <p class="project-sub">Distributed Log Processing System</p>
-                            <ul>
-                                <li>Developed a system to retrieve, aggregate, and process distributed test logs for multiple users.</li>
-                                <li>Built structured pipelines to normalize logs and generate consolidated engineering reports.</li>
-                            </ul>
-                        </article>
+                            <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="2 of 4">
+                                <a class="project-card-link" href="projects.html#nasomeatr">
+                                    <article class="project-card">
+                                        <h3>NasomEATR</h3>
+                                        <p class="project-sub">Real-Time Speech Analysis Platform</p>
+                                        <ul>
+                                            <li>Architected and built a mobile app integrating wireless hardware communication for real-time acoustic signal processing.</li>
+                                            <li>Designed data pipelines to compute nasalance scores and store structured speech-analysis datasets.</li>
+                                            <li>Optimized low-latency data transmission between device and mobile system.</li>
+                                        </ul>
+                                        <span class="project-view-more">
+                                            View project details
+                                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke-width="2"/></svg>
+                                        </span>
+                                    </article>
+                                </a>
+                            </div>
 
-                        <article class="project-card">
-                            <h3>Messenger Application</h3>
-                            <p class="project-sub">Networked Client-Server System</p>
-                            <ul>
-                                <li>Built a Python messaging app using socket programming and a Tkinter GUI.</li>
-                                <li>Implemented authentication, real-time communication, and message persistence across distributed clients.</li>
-                            </ul>
-                        </article>
+                            <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="3 of 4">
+                                <a class="project-card-link" href="projects.html#pythar">
+                                    <article class="project-card">
+                                        <h3>Pythar Automation Testing</h3>
+                                        <p class="project-sub">Distributed Log Processing System</p>
+                                        <ul>
+                                            <li>Developed a system to retrieve, aggregate, and process distributed test logs for multiple users.</li>
+                                            <li>Built structured pipelines to normalize logs and generate consolidated engineering reports.</li>
+                                        </ul>
+                                        <span class="project-view-more">
+                                            View project details
+                                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke-width="2"/></svg>
+                                        </span>
+                                    </article>
+                                </a>
+                            </div>
 
+                            <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="4 of 4">
+                                <a class="project-card-link" href="projects.html#messenger">
+                                    <article class="project-card">
+                                        <h3>Messenger Application</h3>
+                                        <p class="project-sub">Networked Client-Server System</p>
+                                        <ul>
+                                            <li>Built a Python messaging app using socket programming and a Tkinter GUI.</li>
+                                            <li>Implemented authentication, real-time communication, and message persistence across distributed clients.</li>
+                                        </ul>
+                                        <span class="project-view-more">
+                                            View project details
+                                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke-width="2"/></svg>
+                                        </span>
+                                    </article>
+                                </a>
+                            </div>
+
+                        </div>
+                        </div>
+
+                        <div class="carousel-controls">
+                            <button class="carousel-btn prev" type="button" aria-label="Previous project">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6" fill="none" stroke-width="2"/></svg>
+                            </button>
+                            <div class="carousel-dots" role="tablist" aria-label="Choose project"></div>
+                            <button class="carousel-btn next" type="button" aria-label="Next project">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6" fill="none" stroke-width="2"/></svg>
+                            </button>
+                        </div>
                     </div>
 
                     <p class="projects-more">

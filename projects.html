@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detailed write-ups of Vaani Mathur's projects, including a LiveKit-based AI voice agent, a speech analysis platform, and more.">
+    <meta name="author" content="Vaani Mathur">
+    <title>Project Details | Vaani Mathur</title>
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="wrap header-inner">
+            <a class="brand" href="index.html">VM</a>
+
+            <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="primary-nav" id="primaryNav">
+                <ul>
+                    <li><a href="index.html#hero">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="index.html#experience">Experience</a></li>
+                    <li><a href="index.html#projects">Projects</a></li>
+                    <li><a href="index.html#skills">Skills</a></li>
+                    <li><a href="index.html#education">Education</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+
+        <section class="page-intro">
+            <div class="wrap">
+                <p class="eyebrow">The details</p>
+                <h1>Project Deep Dives</h1>
+                <p class="hero-tagline">A closer look at what I built, how I built it, and the tools behind each project.</p>
+                <p><a class="back-link" href="index.html#projects">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6" fill="none" stroke-width="2"/></svg>
+                    Back to portfolio
+                </a></p>
+            </div>
+        </section>
+
+        <section class="section" id="livekit-voice-agent">
+            <div class="wrap">
+                <h2 class="section-heading">LiveKit AI Voice Agent</h2>
+                <div class="section-body about-body">
+                    <p class="project-sub">Real-Time Voice AI for Dental Scheduling · AssignCorp</p>
+                    <p>An AI voice assistant for a dental office, built on LiveKit's real-time communication framework so callers can talk to it like they would a front-desk staff member. The Python backend integrates OpenAI's APIs for speech-to-text and LLM-driven dialogue, turning a phone conversation into a structured scheduling action.</p>
+                    <ul>
+                        <li>Architected and developed the AI voice assistant using the LiveKit real-time communication framework.</li>
+                        <li>Built Python backend services integrating OpenAI APIs for speech-to-text, LLM-driven dialogue, and automated appointment workflows.</li>
+                        <li>Designed scalable API pipelines to log calls, manage scheduling, and integrate with external systems using n8n automation.</li>
+                        <li>Containerized services with Docker for reproducible deployments and local testing across distributed components.</li>
+                        <li>Implemented conversational logic to handle scheduling, rescheduling, and cancellation scenarios aligned with real business workflows.</li>
+                    </ul>
+                    <div class="tags">
+                        <span class="tag">LiveKit</span><span class="tag">Python</span><span class="tag">OpenAI API</span><span class="tag">Docker</span><span class="tag">n8n</span><span class="tag">REST APIs</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section alt" id="nasomeatr">
+            <div class="wrap">
+                <h2 class="section-heading">NasomEATR</h2>
+                <div class="section-body about-body">
+                    <p class="project-sub">Real-Time Speech Analysis Platform</p>
+
+                    <div class="carousel project-carousel photo-gallery" id="nasomeatrGallery" aria-roledescription="carousel" aria-label="NasomEATR team photos">
+                        <div class="carousel-viewport">
+                        <div class="carousel-track">
+
+                            <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="1 of 4">
+                                <img src="assets/images/projects/nasomeatr/nasomeatr-1.jpg" alt="Team NasomEATR presenting our poster at UC Irvine's ICS Project Expo" loading="lazy">
+                            </div>
+                            <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="2 of 4">
+                                <img src="assets/images/projects/nasomeatr/nasomeatr-2.jpg" alt="Celebrating with the team in the auditorium right after our win was announced" loading="lazy">
+                            </div>
+                            <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="3 of 4">
+                                <img src="assets/images/projects/nasomeatr/nasomeatr-3.jpg" alt="Accepting the first place prize check for the Informatics category" loading="lazy">
+                            </div>
+                            <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="4 of 4">
+                                <img src="assets/images/projects/nasomeatr/nasomeatr-4.jpg" alt="The crowd cheering during the awards ceremony" loading="lazy">
+                            </div>
+
+                        </div>
+                        </div>
+
+                        <div class="carousel-controls">
+                            <button class="carousel-btn prev" type="button" aria-label="Previous photo">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6" fill="none" stroke-width="2"/></svg>
+                            </button>
+                            <div class="carousel-dots" role="tablist" aria-label="Choose photo"></div>
+                            <button class="carousel-btn next" type="button" aria-label="Next photo">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6" fill="none" stroke-width="2"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="photo-gallery-caption">First place, Informatics category at UC Irvine's ICS Project Expo, 2025.</p>
+
+                    <p>A mobile app paired with wireless hardware to process acoustic signals in real time. It computes nasalance scores, a measure speech-language pathologists use to assess the balance of nasal and oral airflow during speech, and stores the results as structured datasets for further analysis.</p>
+                    <ul>
+                        <li>Architected and built a mobile app integrating wireless hardware communication for real-time acoustic signal processing.</li>
+                        <li>Designed data pipelines to compute nasalance scores and store structured speech-analysis datasets.</li>
+                        <li>Optimized low-latency data transmission between device and mobile system.</li>
+                    </ul>
+                    <div class="tags">
+                        <span class="tag">Mobile Development</span><span class="tag">Signal Processing</span><span class="tag">Wireless Hardware</span><span class="tag">Data Pipelines</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="pythar">
+            <div class="wrap">
+                <h2 class="section-heading">Pythar Automation Testing</h2>
+                <div class="section-body about-body">
+                    <p class="project-sub">Distributed Log Processing System</p>
+                    <p>A system built to take the manual work out of reviewing distributed test runs. It retrieves logs generated across multiple users and test environments, normalizes them into a consistent structure, and consolidates everything into a single engineering report.</p>
+                    <ul>
+                        <li>Developed a system to retrieve, aggregate, and process distributed test logs for multiple users.</li>
+                        <li>Built structured pipelines to normalize logs and generate consolidated engineering reports.</li>
+                    </ul>
+                    <div class="tags">
+                        <span class="tag">Python</span><span class="tag">Distributed Systems</span><span class="tag">Log Processing</span><span class="tag">Automation</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section alt" id="messenger">
+            <div class="wrap">
+                <h2 class="section-heading">Messenger Application</h2>
+                <div class="section-body about-body">
+                    <p class="project-sub">Networked Client-Server System</p>
+                    <p>A messaging app built from the ground up in Python, using raw socket programming for the networking layer and a Tkinter desktop GUI on top. It supports multiple simultaneous clients with authentication and persistent message history.</p>
+                    <ul>
+                        <li>Built a Python messaging app using socket programming and a Tkinter GUI.</li>
+                        <li>Implemented authentication, real-time communication, and message persistence across distributed clients.</li>
+                    </ul>
+                    <div class="tags">
+                        <span class="tag">Python</span><span class="tag">Socket Programming</span><span class="tag">Tkinter</span><span class="tag">Client-Server Architecture</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <p>&copy; <span id="year"></span> Vaani Mathur</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
