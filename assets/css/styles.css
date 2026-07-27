@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Vaani Mathur — Portfolio
+   Vaani Mathur Portfolio
    ========================================================================== */
 
 :root {
@@ -231,6 +231,7 @@ svg { width: 1em; height: 1em; fill: currentColor; }
 
 .section { padding: 72px 0; }
 .section.alt { background: var(--bg-alt); }
+.section.flush-top { padding-top: 0; }
 
 .section-heading {
   font-size: 1.6rem;
@@ -398,6 +399,145 @@ svg { width: 1em; height: 1em; fill: currentColor; }
   font-size: 1.05rem;
 }
 .contact-links { margin: 0 auto; }
+
+/* ---------- About-me page ---------- */
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: .9rem;
+}
+.back-link svg { width: .9em; height: .9em; }
+
+.page-intro { padding: 56px 0 8px; text-align: center; }
+.page-intro h1 {
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -.02em;
+}
+.page-intro .hero-tagline { margin-top: 8px; }
+
+.callout {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin-top: 20px;
+  max-width: 640px;
+}
+.callout .emoji { font-size: 1.6rem; line-height: 1; }
+.callout p { margin: 0; color: var(--text); font-weight: 500; }
+
+.quote-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin: 20px 0;
+  max-width: 640px;
+}
+.quote-card p {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  color: var(--accent-dark);
+  margin: 0;
+}
+.quote-card cite {
+  display: block;
+  margin-top: 8px;
+  font-style: normal;
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* ---------- Carousel ---------- */
+
+.carousel {
+  position: relative;
+  max-width: 380px;
+  margin: 0 auto;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 16px 32px -18px rgba(27, 27, 43, .25);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform .4s ease;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  aspect-ratio: 3 / 4;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, .85);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background .15s ease, transform .15s ease;
+}
+.carousel-btn:hover { background: #fff; transform: translateY(-50%) scale(1.06); }
+.carousel-btn svg { width: 1.2em; height: 1.2em; }
+.carousel-btn.prev { left: 12px; }
+.carousel-btn.next { right: 12px; }
+
+.carousel-dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.carousel-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: rgba(255, 255, 255, .6);
+  cursor: pointer;
+  transition: background .15s ease, transform .15s ease;
+}
+.carousel-dot:hover { transform: scale(1.15); }
+.carousel-dot.is-active { background: #fff; }
+
+.carousel-caption {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: .85rem;
+  margin: 14px 0 0;
+}
+
+@media (max-width: 480px) {
+  .carousel-btn { width: 34px; height: 34px; }
+}
 
 /* ---------- Footer ---------- */
 
