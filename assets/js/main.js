@@ -1,59 +1,65 @@
-jQuery(document).ready(function($) {
+(function () {
+  'use strict';
 
+  // Footer year
+  var yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    /*======= Skillset *=======*/
-    
-    $('.level-bar-inner').css('width', '0');
-    
-    $(window).on('load', function() {
+  // Mobile nav toggle
+  var toggle = document.getElementById('navToggle');
+  var nav = document.getElementById('primaryNav');
 
-        $('.level-bar-inner').each(function() {
-        
-            var itemWidth = $(this).data('level');
-            
-            $(this).animate({
-                width: itemWidth
-            }, 800);
-            
-        });
-
+  if (toggle && nav) {
+    toggle.addEventListener('click', function () {
+      var isOpen = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', isOpen);
     });
-    
-    /* Bootstrap Tooltip for Skillset */
-    $('.level-label').tooltip();
-    
-    /* jQuery RSS - https://github.com/sdepold/jquery-rss */
-    $("#rss-feeds").rss(
-    
-        //Change this to your own rss feeds
-        "http://feeds.feedburner.com/TechCrunch/startups",
-        
-        {
-        // how many entries do you want?
-        // default: 4
-        // valid values: any integer
-        limit: 3,
-        
-        // the effect, which is used to let the entries appear
-        // default: 'show'
-        // valid values: 'show', 'slide', 'slideFast', 'slideSynced', 'slideFastSynced'
-        effect: 'slideFastSynced',
-        
-        // outer template for the html transformation
-        // default: "<ul>{entries}</ul>"
-        // valid values: any string
-        layoutTemplate: "<div class='item'>{entries}</div>",
-        
-        // inner template for each entry
-        // default: '<li><a href="{url}">[{author}@{date}] {title}</a><br/>{shortBodyPlain}</li>'
-        // valid values: any string
-        entryTemplate: '<h3 class="title"><a href="{url}" target="_blank">{title}</a></h3><div><p>{shortBodyPlain}</p><a class="more-link" href="{url}" target="_blank"><i class="fa fa-external-link"></i>Read more</a></div>'
-        
+
+    nav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        nav.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // Scrollspy: highlight the nav link for the section in view
+  var navLinks = nav ? Array.prototype.slice.call(nav.querySelectorAll('a')) : [];
+  var sections = navLinks
+    .map(function (link) { return document.querySelector(link.getAttribute('href')); })
+    .filter(Boolean);
+
+  if ('IntersectionObserver' in window && sections.length) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var link = nav.querySelector('a[href="#' + entry.target.id + '"]');
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (l) { l.classList.remove('active'); });
+          link.classList.add('active');
         }
-    );
-    
-    /* Github Activity Feed - https://github.com/caseyscarborough/github-activity */
-    GitHubActivity.feed({ username: "caseyscarborough", selector: "#ghfeed" });
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
 
+    sections.forEach(function (section) { spy.observe(section); });
+  }
 
-});
+  // Reveal-on-scroll animation
+  var revealTargets = document.querySelectorAll('.section, .project-card, .timeline-item');
+  revealTargets.forEach(function (el) { el.classList.add('reveal'); });
+
+  if ('IntersectionObserver' in window) {
+    var revealer = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    revealTargets.forEach(function (el) { revealer.observe(el); });
+  } else {
+    revealTargets.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+})();
